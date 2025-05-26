@@ -1,44 +1,18 @@
-#rohit_1888
-
-#rohit_1888
-
-import os
-import asyncio
-from aiofiles import os
-import time
 import logging
-import random
-from pyrogram import Client, filters, enums
-from pyrogram.types import (
-    Message,
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    CallbackQuery,
-)
-from pyrogram.errors import (
-    FloodWait,
-    InputUserDeactivated,
-    UserIsBlocked,
-    UserNotParticipant,
-    MessageTooLong,
-    PeerIdInvalid,
-)
-from Spidey.database import get_all_users, add_user, already_db
-from aiogram import Bot, Dispatcher, types
-from pyrogram import filters, enums
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from Script import script
-from leave import register_leave_handler
-from pyrogram import Client, filters
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from pymongo.errors import PyMongoError
-from configs import *
 import threading
 import socket
-from pyrogram.enums import ChatMembersFilter
+
+from pyrogram import Client
+from leave import register_leave_handler
+from Script import script
+from configs import API_ID, API_HASH, BOT_TOKEN
 
 
+# Create a shared Pyrogram client instance
+app = Client("approver_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
+
+# Optional: TCP health check server for Koyeb
 def start_tcp_healthcheck_server(port=8080):
     def server():
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -53,16 +27,13 @@ def start_tcp_healthcheck_server(port=8080):
     thread.start()
 
 
-# Initialize the bot
-app = Client("approver_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
-
-
-
-
+# Run the bot
 if __name__ == "__main__":
+    from commands import *  # Register all handlers before starting
     register_leave_handler(app)
+
     logging.basicConfig(level=logging.INFO)
     print(script.LOGO_MSG)
 
-    start_tcp_healthcheck_server(port=8080)  # Starts TCP server on port 8080 for health checks
+    start_tcp_healthcheck_server(port=8080)
     app.run()
