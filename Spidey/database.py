@@ -5,7 +5,7 @@
 from pymongo import MongoClient
 from configs import * #
 
-client = MongoClient(Spidey.DATABASE_URI)
+client = MongoClient(DATABASE_URI)
 
 users = client['main']['users']
 groups = client['main']['groups']
