@@ -6,17 +6,6 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ChatMembe
 # Enable logging for debugging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-# 🔹 Images & GIFs for Random Selection
-MEDIA_FILES = [
-    "https://i.ibb.co/RymDMxS/66e7d1b6.jpg",
-    "https://i.ibb.co/CPxdkHR/IMG-20240818-192201-633.jpg",
-    "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
-    "https://media.giphy.com/media/l3q2K5jinAlChoCLS/giphy.gif"
-]
-
-# 🔹 Groups & Channels to Track
-CHAT_IDS = [-1002453024937, -1001959922658, -1002470391435, -1002481537934]
-
 # 🔹 Support & Rejoin Links
 SUPPORT_CHAT = "https://t.me/hacker_x_official_777"
 CHANNEL_LINK = "https://t.me/spideyofficial777"
