@@ -36,7 +36,7 @@ from configs import *
 import threading
 import socket
 from pyrogram.enums import ChatMembersFilter
-
+from bot import app
 
 # Configuration do not remove otherwise bot will be crashed
 
@@ -46,22 +46,6 @@ background_image_url = "https://i.ibb.co/RymDMxS/66e7d1b6.jpg"
 welcome_image = "https://envs.sh/v3t.jpg"
 
 
-def start_tcp_healthcheck_server(port=8080):
-    def server():
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            s.bind(('0.0.0.0', port))
-            s.listen()
-            while True:
-                conn, addr = s.accept()
-                with conn:
-                    conn.sendall(b"OK")
-
-    thread = threading.Thread(target=server, daemon=True)
-    thread.start()
-
-
-# Initialize the bot
-app = Client("approver_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 # Approve join requests and send a welcome message
 @app.on_chat_join_request(filters.group | filters.channel)
@@ -680,14 +664,6 @@ async def close_callback(client, callback_query):
 async def help_command(client, message):
     await message.reply_text(script.HELP_TXT)
         
-        
-if __name__ == "__main__":
-    register_leave_handler(app)
-    logging.basicConfig(level=logging.INFO)
-    print(script.LOGO_MSG)
-
-    start_tcp_healthcheck_server(port=8080)  # Starts TCP server on port 8080 for health checks
-    app.run()
 
 
 # Don't Remove Credit @spideyofficial777
