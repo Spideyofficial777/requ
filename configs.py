@@ -5,16 +5,16 @@
 from os import path, getenv, environ
 
 
-API_ID = int(getenv("API_ID", ""))
-API_HASH = getenv("API_HASH", "")
-BOT_TOKEN = getenv("BOT_TOKEN", "")
+API_ID = int(getenv("API_ID", "28519661"))
+API_HASH = getenv("API_HASH", "d47c74c8a596fd3048955b322304109d")
+BOT_TOKEN = getenv("BOT_TOKEN", "7430114529:AAH22Y1wwaE1pgcL3r2kdKrpZ47mrPcjYhE")
     
 CHANNEL_IDS = list(map(int, getenv("CHANNEL_IDS", "-1001959922658,-1002470391435,-1002433552221, -1002252585703").split(",")))
     
 REACTIONS = ["👀", "😱", "🔥", "😍", "🎉", "🥰", "😇", "⚡"]
     
 ADMINS = list(map(int, getenv("ADMINS", "5518489725").split()))
-DATABASE_URI = getenv("DATABASE_URI", "")
+DATABASE_URI = getenv("DATABASE_URI", "mongodb+srv://Soldier:QTo6GiCGk4xQTRRw@cluster0.igba5fh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 LOG_CHANNEL = int(getenv("LOG_CHANNEL", "-1002294764885")) 
 
@@ -25,8 +25,7 @@ START_IMG = (environ.get('START_IMG', 'https://graph.org/file/2518d4eb8c88f8f669
 class temp(object):    
     U_NAME = None
     B_NAME = None
-      
-Spidey = Config()
+
 
 # Don't Remove Credit @spideyofficial777
 # Subscribe YouTube Channel For Amazing Bot @spidey_official_777
