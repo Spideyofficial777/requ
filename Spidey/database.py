@@ -3,7 +3,7 @@
 # Ask Doubt on telegram @hacker_x_official_777
 
 from pymongo import MongoClient
-from configs import Spidey
+from configs import * #
 
 client = MongoClient(Spidey.DATABASE_URI)
 
