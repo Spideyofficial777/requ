@@ -9,7 +9,7 @@ API_ID = int(getenv("API_ID", "28519661"))
 API_HASH = getenv("API_HASH", "d47c74c8a596fd3048955b322304109d")
 BOT_TOKEN = getenv("BOT_TOKEN", "7430114529:AAH22Y1wwaE1pgcL3r2kdKrpZ47mrPcjYhE")
     
-CHANNEL_IDS = list(map(int, getenv("CHANNEL_IDS", "-1001959922658,-1002470391435,-1002433552221, -1002252585703").split(",")))
+CHANNEL_IDS = list(map(int, getenv("CHANNEL_IDS", "-1001959922658,-1002470391435,-1002433552221").split(",")))
     
 REACTIONS = ["👀", "😱", "🔥", "😍", "🎉", "🥰", "😇", "⚡"]
     
