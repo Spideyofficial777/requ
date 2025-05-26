@@ -682,7 +682,6 @@ async def help_command(client, message):
         
         
 if __name__ == "__main__":
-    from handlers import register_leave_handler  # adjust import if needed
     register_leave_handler(app)
     logging.basicConfig(level=logging.INFO)
     print(script.LOGO_MSG)
