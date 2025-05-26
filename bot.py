@@ -32,19 +32,11 @@ from leave import register_leave_handler
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pymongo.errors import PyMongoError
-from configs import Spidey, temp, START_IMG
+from configs import *
 from pyrogram.enums import ChatMembersFilter
 
 
 # Configuration do not remove otherwise bot will be crashed
-API_ID = ""
-API_HASH = ""
-BOT_TOKEN = ""
-CHANNEL_IDS = [-1001959922658, -1002433552221, -1002470391435, -1002252585703]
-LOG_CHANNEL = -1002294764885
-ADMINS = [5518489725]
-MONGO_URI = ""
-
 
 # Image URLs
 #xyz_welome_image_url = ""
