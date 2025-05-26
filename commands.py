@@ -33,6 +33,8 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pymongo.errors import PyMongoError
 from configs import *
+import threading
+import socket
 from pyrogram.enums import ChatMembersFilter
 
 
@@ -42,6 +44,21 @@ from pyrogram.enums import ChatMembersFilter
 #xyz_welome_image_url = ""
 background_image_url = "https://i.ibb.co/RymDMxS/66e7d1b6.jpg"
 welcome_image = "https://envs.sh/v3t.jpg"
+
+
+def start_tcp_healthcheck_server(port=8080):
+    def server():
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.bind(('0.0.0.0', port))
+            s.listen()
+            while True:
+                conn, addr = s.accept()
+                with conn:
+                    conn.sendall(b"OK")
+
+    thread = threading.Thread(target=server, daemon=True)
+    thread.start()
+
 
 # Initialize the bot
 app = Client("approver_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
@@ -665,9 +682,12 @@ async def help_command(client, message):
         
         
 if __name__ == "__main__":
+    from handlers import register_leave_handler  # adjust import if needed
     register_leave_handler(app)
     logging.basicConfig(level=logging.INFO)
     print(script.LOGO_MSG)
+
+    start_tcp_healthcheck_server(port=8080)  # Starts TCP server on port 8080 for health checks
     app.run()
 
 
