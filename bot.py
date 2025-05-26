@@ -29,7 +29,7 @@ def start_tcp_healthcheck_server(port=8080):
 
 # Run the bot
 if __name__ == "__main__":
-    from commands import *  # Register all handlers before starting
+    from commands import *  # Register all handlers
     register_leave_handler(app)
 
     logging.basicConfig(level=logging.INFO)
