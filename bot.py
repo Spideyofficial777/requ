@@ -19,7 +19,7 @@ app = Client("approver_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOK
 def start_tcp_healthcheck_server(PORT):
     def server():
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            s.bind(('0.0.0.0', port))
+            s.bind(('0.0.0.0', PORT))
             s.listen()
             while True:
                 conn, addr = s.accept()
