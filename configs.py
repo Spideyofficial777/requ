@@ -3,7 +3,7 @@
 # Ask Doubt on telegram @hacker_x_official_777
 
 import os
-from os import getenv
+from os import path, getenv, environ
 
 API_ID = int(getenv("API_ID", "28519661"))
 API_HASH = getenv("API_HASH", "d47c74c8a596fd3048955b322304109d")
