@@ -21,6 +21,7 @@ LOG_CHANNEL = int(getenv("LOG_CHANNEL", "-1002294764885"))
 
 START_IMG = (environ.get('START_IMG', 'https://graph.org/file/2518d4eb8c88f8f669f4c.jpg https://graph.org/file/d6d9d9b8d2dc779c49572.jpg https://graph.org/file/4b04eaad1e75e13e6dc08.jpg https://graph.org/file/05066f124a4ac500f8d91.jpg https://graph.org/file/2c64ed483c8fcf2bab7dd.jpg https://i.ibb.co/CPxdkHR/IMG-20240818-192201-633.jpg')).split()
 
+PORT = os.environ.get("PORT", "8080")
 
 class temp(object):    
     U_NAME = None

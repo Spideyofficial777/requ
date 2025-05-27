@@ -8,7 +8,7 @@ import socket
 from pyrogram import Client
 from leave import register_leave_handler
 from Script import script
-from configs import API_ID, API_HASH, BOT_TOKEN
+from configs import API_ID, API_HASH, BOT_TOKEN, PORT
 
 
 # Create a shared Pyrogram client instance
@@ -16,7 +16,7 @@ app = Client("approver_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOK
 
 
 # Optional: TCP health check server for Koyeb
-def start_tcp_healthcheck_server(port=8080):
+def start_tcp_healthcheck_server(PORT):
     def server():
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.bind(('0.0.0.0', port))
@@ -38,5 +38,5 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     print(script.LOGO_MSG)
 
-    start_tcp_healthcheck_server(port=8080)
+    start_tcp_healthcheck_server(PORT)
     app.run()
