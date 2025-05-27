@@ -34,8 +34,7 @@ def start_tcp_healthcheck_server(PORT):
 if __name__ == "__main__":
     from commands import *  # Register all handlers
     register_leave_handler(app)
-
-    logging.basicConfig(level=logging.INFO)
+    
     print(script.LOGO_MSG)
 
     start_tcp_healthcheck_server(PORT)
